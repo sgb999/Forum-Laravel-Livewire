@@ -1,3 +1,3 @@
 @include('general.layout.header')
-        @livewire('login')
+@livewire('update-profile', ['user' => $user])
 @include('general.layout.footer')

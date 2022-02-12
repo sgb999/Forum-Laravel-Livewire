@@ -2,8 +2,8 @@
 <div class="container">
     <h1>{{ $user->username }}</h1>
     @auth
-        @if($user->id == auth()->id())
-        <a href="#" class="btn btn-primary">Edit profile</a>
+        @if($user->id === auth()->id())
+        <a href="{{ route('profile.update', $user->username) }}" class="btn btn-primary">Edit profile</a>
             @endif
     @endauth
     <hr>

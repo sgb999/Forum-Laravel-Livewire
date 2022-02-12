@@ -1,5 +1,5 @@
 @include('general.layout.header')
-<div class="content">
+<div class="container">
     <a class="btn btn-dark" href="{{ route('viewTopics', $post->category_id) }}">Back</a>
     <h2>Post</h2>
     <hr>

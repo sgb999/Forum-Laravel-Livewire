@@ -1,4 +1,7 @@
 <div>
+    <div id="app" wire:loading wire:target="submit">
+        <page-loader></page-loader>
+    </div>
     <form wire:submit.prevent="post">
         <label>Post Title</label>
         <input wire:model="title" class="form-control" rows="4">
@@ -10,7 +13,7 @@
         <p style="margin-bottom: 0"></p>
         <select wire:model="category_id" class="form-control-sm">
             @foreach($this->categories as $category)
-                <option @if(empty($this->category_id) && $this->category_id == $category->id)
+                <option @if(empty($this->category_id) && $this->category_id === $category->id)
                         selected
                         @elseif(empty($this->category_id))
                             selected

@@ -1,7 +1,6 @@
 @include('general.layout.header')
-<div class="content">
+<div class="container">
     <h3>Welcome to the Assassin's creed forum</h3>
-
     <p>This is a forum for the Assassin's creed game franchise</p>
     <p>Game developer: Ubisoft</p>
     <p>There are currently 1 Assassin's creed games released <i>(not including mobile)</i>, they are the following:</p>
