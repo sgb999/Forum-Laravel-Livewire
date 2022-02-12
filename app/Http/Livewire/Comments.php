@@ -21,16 +21,11 @@ class Comments extends Component
 
     public function render()
     {
-        return view('livewire.comments');
-    }
-    public function comments()
-    {
-        if(empty($this->comments)){
-        return Comment::where('post_id', $this->post_id)
+        $comments = Comment::where('post_id', $this->post_id)
             ->with('user')
             ->orderBy('created_at', 'ASC')
             ->paginate(10);
-        }
+        return view('livewire.comments', compact(['comments']));
     }
 
     public function store()

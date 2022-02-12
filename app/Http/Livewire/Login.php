@@ -2,7 +2,6 @@
 
 namespace App\Http\Livewire;
 
-use App\Http\Requests\UserLoginRequest;
 use Livewire\Component;
 
 class Login extends Component
@@ -11,8 +10,8 @@ class Login extends Component
     public $password;
 
     protected $rules = [
-        'email' => ['required', 'email'],
-        'password' => ['required', 'string', 'min:8']
+        'email' => ['required', 'email', 'unique:users,email', 'max:255'],
+        'password' => ['required', 'string', 'min:8', 'max:255']
     ];
 
     public function render()

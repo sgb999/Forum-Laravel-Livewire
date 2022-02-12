@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
@@ -28,12 +29,15 @@ class Register extends Component
     public function register(){
         $this->validate();
 
-        User::create([
+        $credentials = [
              'name' => $this->name,
              'username' => $this->username,
              'email' => $this->email,
              'password' => Hash::make($this->password)
-         ]);
+         ];
+
+        UserController::updateOrCreateUser($credentials);
+
         if(auth()->attempt([
            'email' => $this->email,
            'password' => $this->password

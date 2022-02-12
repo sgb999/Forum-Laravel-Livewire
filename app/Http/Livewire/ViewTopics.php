@@ -14,8 +14,7 @@ class ViewTopics extends Component
 
     public function render()
     {
-        $topics = Post::with('user:id,username', 'category:id,name')
-            ->select('id', 'title', 'user_id', 'category_id', 'created_at')
+        $topics = Post::with('user', 'category')
             ->where('category_id', $this->category_id)
             ->orderBy('created_at', 'Desc')
             ->paginate(20);

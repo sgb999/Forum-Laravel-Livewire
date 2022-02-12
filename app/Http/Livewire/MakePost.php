@@ -40,16 +40,19 @@ class MakePost extends Component
     public function post()
     {
         $this->validate();
-
-        $post = PostController::store([
+        $content = [
             'title' => $this->title,
             'content' => $this->content,
             'category_id' => $this->category_id,
             'user_id' => auth()->id()
-        ]);
-        if($post)
+        ];
+        if($this->post)
         {
-            return redirect()->to(route('viewPost' , $post->id));
+            $post = PostController::store($content, $this->post->id);
         }
+        else{
+            $post = PostController::store($content);
+        }
+        return redirect()->to(route('viewPost' , $post->id));
     }
 }

@@ -36,9 +36,10 @@ class PostController extends Controller
         $page_title = 'Assassins Creed - Make a Post';
         return view('general.pages.post', compact(['page_title', 'post']));
     }
-    public static function store($postRequest)
+
+    public static function store($postRequest, $id = null)
     {
-        return Post::firstOrCreate($postRequest);
+        return Post::updateOrCreate(['id' => $id], $postRequest);
     }
 
     public function update($id, PostStoreRequest $request)
@@ -47,17 +48,6 @@ class PostController extends Controller
         $validated += ['user_id' => auth()->id()];
         Post::whereId($id)->update($validated);
         return redirect()->to(route('viewPost' , $id));
-    }
-
-    public function getProfilePostsAjax($id)
-    {
-        $topics = Post::with('user:id,username', 'category:id,name')
-            ->select('id', 'title', 'user_id', 'category_id', 'created_at')
-            ->where('user_id',  $id)
-            ->orderByDesc('created_at')
-            ->paginate(10);
-
-        return response()->json($topics);
     }
 
     public function destroy(Post $post)
