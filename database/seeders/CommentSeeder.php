@@ -12,7 +12,7 @@ class CommentSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         Comment::factory(2000)->create();
     }
