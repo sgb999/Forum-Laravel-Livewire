@@ -21,24 +21,32 @@
     <link rel="stylesheet" href="{{ mix('/css/header.css') }}">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
 </head>
-<header class="navbar-mobile">
-    <h1 id="header">Assassin's creed forum</h1>
-    <button id="hamburger">☰</button>
-</header>
-<div id="div-header">
-    <ul id="ul-header" class="navbar-grid">
-        <li><a href="{{ route('home') }}">Home</a></li>
-        <li><a href="{{ route('categories') }}">View Categories</a></li>
-        <h1 id="header-desktop">Assassin's creed forum</h1>
-        @auth
-            <li class="right"><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-out red"></span> Sign out</a></li>
-            <li class="right"><a href="#"><span class="glyphicon glyphicon-envelope yellow"></span>Messages</a></li>
-        @endauth
-        @guest
-            <li class="right"><a href="{{ route('registerPage') }}"><span class="glyphicon glyphicon-user green"></span>Sign Up</a></li>
-            <li class="right"><a href="{{ route('loginPage') }}"><span class="glyphicon glyphicon-log-in green"></span>Login</a></li>
-        @endguest
-    </ul>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ route('home') }}">Assassin's creed forum</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">View Categories</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+            @auth
+                <a class="navbar-text" href="{{ route('logout') }}">Sign out</a>
+                <a class="navbar-text" href="#">Messages</a>
+            @endauth
+            @guest
+                <a class="navbar-text" href="{{ route('registerPage') }}">Sign Up </a>
+                <a class="navbar-text" href="{{ route('loginPage') }}"> Login</a>
+            @endguest
+        </div>
+    </div>
+</nav>
+
 
 
