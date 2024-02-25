@@ -21,6 +21,6 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 });*/
 
-Route::middleware(['guest'])->group(function(){
+Route::middleware(['guest'])->group(function () {
 
 });

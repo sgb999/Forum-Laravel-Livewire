@@ -9,7 +9,16 @@ use Livewire\Component;
 class UpdateProfile extends Component
 {
     public $user; // passed to component
-    public $name, $email, $username, $password, $password_confirmation;
+
+    public $name;
+
+    public $email;
+
+    public $username;
+
+    public $password;
+
+    public $password_confirmation;
 
     public function render()
     {

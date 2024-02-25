@@ -13,7 +13,7 @@ class Profile extends Component
     {
         $posts = Post::with('user:id,username', 'category:id,name')
             ->select('id', 'title', 'user_id', 'category_id', 'created_at')
-            ->where('user_id',  $this->user->id)
+            ->where('user_id', $this->user->id)
             ->orderByDesc('created_at')
             ->paginate(10);
 

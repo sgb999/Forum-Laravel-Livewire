@@ -7,15 +7,12 @@ use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-
 class RegisterUserTest extends TestCase
 {
     use RefreshDatabase;
 
     /**
      * Test that th page loads
-     *
-     * @return void
      */
     public function test_renders_successfully(): void
     {

@@ -8,8 +8,6 @@ class UserStoreRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
-     *
-     * @return bool
      */
     public function authorize(): bool
     {
@@ -18,8 +16,6 @@ class UserStoreRequest extends FormRequest
 
     /**
      * Get the validation rules that apply to the request.
-     *
-     * @return array
      */
     public function rules(): array
     {
@@ -27,7 +23,7 @@ class UserStoreRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255', 'unique:users,username'],
             'email' => ['required', 'email', 'unique:users,email', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed']
+            'password' => ['required', 'string', 'min:8', 'max:255', 'confirmed'],
         ];
     }
 }

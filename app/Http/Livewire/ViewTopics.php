@@ -9,7 +9,9 @@ use Livewire\WithPagination;
 class ViewTopics extends Component
 {
     use WithPagination;
+
     public $category_id;
+
     protected $paginationTheme = 'bootstrap';
 
     public function render()
