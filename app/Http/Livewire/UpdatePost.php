@@ -3,15 +3,21 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Http\Controllers\PostController;
+
 class UpdatePost extends Component
 {
-    public $post, $title, $content, $categoryId;
+    public $post;
+
+    public $title;
+
+    public $content;
+
+    public $categoryId;
 
     protected $rules = [
         'title' => ['required', 'string', 'max:255'],
         'content' => ['required', 'string'],
-        'category_id' => ['required', 'exists:categories,id']
+        'category_id' => ['required', 'exists:categories,id'],
     ];
 
     public function render()

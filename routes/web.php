@@ -1,11 +1,9 @@
 <?php
 
-use App\Http\Controllers\{
-    Index,
-    UserController,
-    CategoryController,
-    PostController,
-};
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\Index;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,16 +19,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [index::class, 'home'])->name('home');
 Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
-Route::controller(PostController::class)->group(function (){
+Route::controller(PostController::class)->group(function () {
     Route::get('/view-topics/{id}', 'viewTopics')->name('viewTopics');
     Route::get('/view-post/{post}', 'viewPost')->name('viewPost');
 });
-Route::prefix('/profile')->controller(UserController::class)->group(function(){
-    Route::get('/{user:username}','userPage')->name('profile');
+Route::prefix('/profile')->controller(UserController::class)->group(function () {
+    Route::get('/{user:username}', 'userPage')->name('profile');
 });
 
-
-Route::middleware(['auth'])->group(function(){
+Route::middleware(['auth'])->group(function () {
     Route::get('/log-out', [UserController::class, 'logOutMethod'])->name('logout');
 
     //Post routing
@@ -39,12 +36,12 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/update/{post}', 'updatePostPage')->name('post.update');
         Route::delete('/delete/{post}', 'destroy')->name('post.delete');
     });
-    Route::prefix('/profile')->controller(UserController::class)->group(function(){
+    Route::prefix('/profile')->controller(UserController::class)->group(function () {
         Route::get('/update/{user:username}', 'updateProfilePage')->name('profile.update');
     });
 });
 
-Route::middleware(['guest'])->controller(UserController::class)->group(function(){
+Route::middleware(['guest'])->controller(UserController::class)->group(function () {
     Route::get('/login', 'loginPage')->name('loginPage');
     Route::get('/register', 'registerPage')->name('registerPage');
 });

@@ -2,23 +2,31 @@
 
 namespace App\Http\Livewire;
 
+use App\Http\Controllers\PostController;
 use App\Models\Category;
 use Livewire\Component;
-use App\Http\Controllers\PostController;
+
 class MakePost extends Component
 {
-    public $post, $title, $content, $category_id, $categories;
+    public $post;
+
+    public $title;
+
+    public $content;
+
+    public $category_id;
+
+    public $categories;
 
     protected $rules = [
         'title' => ['required', 'string', 'max:255'],
         'content' => ['required', 'string'],
-        'category_id' => ['required', 'exists:categories,id']
+        'category_id' => ['required', 'exists:categories,id'],
     ];
 
     public function mount($post = null)
     {
-        if($post)
-        {
+        if ($post) {
             $this->title = $post->title;
             $this->content = $post->content;
             $this->categoryId = $post->category_id;
@@ -28,9 +36,9 @@ class MakePost extends Component
 
     public function render()
     {
-        if($this->post)
-        {
+        if ($this->post) {
             $post = $this->post;
+
             return view('livewire.make-post', compact('post'));
         }
 
@@ -44,15 +52,14 @@ class MakePost extends Component
             'title' => $this->title,
             'content' => $this->content,
             'category_id' => $this->category_id,
-            'user_id' => auth()->id()
+            'user_id' => auth()->id(),
         ];
-        if($this->post)
-        {
+        if ($this->post) {
             $post = PostController::store($content, $this->post->id);
-        }
-        else{
+        } else {
             $post = PostController::store($content);
         }
-        return redirect()->to(route('viewPost' , $post->id));
+
+        return redirect()->to(route('viewPost', $post->id));
     }
 }

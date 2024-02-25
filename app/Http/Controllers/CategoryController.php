@@ -10,6 +10,7 @@ class CategoryController extends Controller
     {
         $categories = Category::all();
         $page_title = "Assassin's creed Forum - Categories";
+
         return view('general.pages.categories', compact(['page_title', 'categories']));
     }
 }
