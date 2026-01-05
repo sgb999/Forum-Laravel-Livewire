@@ -7,12 +7,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-<!-- Bootstrap core CSS -->
-    <!--<link href="/css/bootstrap.css" rel="stylesheet">-->
-    <!-- Bootstrap theme -->
-    <!--<link href="/css/bootstrap-theme.css" rel="stylesheet">-->
-    <!--custom CSS theme -->
-    <!--<link href="/css/my-style.css" rel="stylesheet">-->
     @if(isset($page_title))
         <title>{{ $page_title }}</title>
     @endif
@@ -20,28 +14,20 @@
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
     <link rel="stylesheet" href="{{ mix('/css/header.css') }}">
 </head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('home') }}">Assassin's creed forum</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('categories') }}">View Categories</a>
-                </li>
-            </ul>
-            @auth
-                <a class="navbar-text" href="{{ route('logout') }}">Sign out</a>
-                <a class="navbar-text" href="#">Messages</a>
-            @endauth
-            @guest
-                <a class="navbar-text" href="{{ route('registerPage') }}">Sign Up </a>
-                <a class="navbar-text" href="{{ route('loginPage') }}"> Login</a>
-            @endguest
-        </div>
-    </div>
+<nav id="navbar">
+    <h1 id="header">Assassin's creed forum</h1>
+    <ul class="topnav">
+        <li><a href="{{ route('home') }}">View Categories</a></li>
+        @auth
+            <li v-if="user" class="right"><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-out red"></span> Sign out</a></li>
+            <li v-if="user" class="right"><a href="#"><span class="glyphicon glyphicon-envelope yellow"></span>Messages</a></li>
+            <li v-if="user" class="right"><a href="#">Profile</a></li>
+        @endauth
+        @guest
+            <li class="right"><a href="{{ route('registerPage') }}"><span class="glyphicon glyphicon-user green"></span>Sign Up</a></li>
+            <li class="right"><a href="{{ route('loginPage') }}"><span class="glyphicon glyphicon-log-in green"></span>Login</a></li>
+        @endguest
+    </ul>
 </nav>
 
 
