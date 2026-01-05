@@ -12,6 +12,7 @@
     @endif
     @livewireStyles
     <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('/css/header.css') }}">
 </head>
 <nav id="navbar">
     <h1 id="header">Assassin's creed forum</h1>

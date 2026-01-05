@@ -2,7 +2,7 @@
 
 namespace Livewire;
 
-use App\Http\Livewire\Login;
+use App\Livewire\Login;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Hash;

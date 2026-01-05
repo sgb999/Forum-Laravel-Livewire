@@ -2,7 +2,7 @@
 
 namespace Livewire;
 
-use App\Http\Livewire\Register;
+use App\Livewire\Register;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
