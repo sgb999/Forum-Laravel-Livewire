@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Livewire;
 
 use App\Http\Controllers\UserController;
 use Illuminate\Contracts\Foundation\Application as contractsApplication;
@@ -10,19 +10,19 @@ use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-use Livewire\Redirector;
+use Livewire\Features\SupportRedirects\Redirector;
 
 class Register extends Component
 {
-    public $name;
+    public string $name = '';
 
-    public $username;
+    public string $username = '';
 
-    public $email;
+    public string $email = '';
 
-    public $password;
+    public string $password = '';
 
-    public $password_confirmation;
+    public string $password_confirmation = '';
 
     protected array $rules = [
         'name' => ['required', 'string', 'max:255'],
