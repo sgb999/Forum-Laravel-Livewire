@@ -28,4 +28,5 @@
     </div>
     <p></p>
     <button class="btn btn-primary" name="submit">Register</button>
+    </form>
 </div>
