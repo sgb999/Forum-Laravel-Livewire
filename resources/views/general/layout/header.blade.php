@@ -24,8 +24,8 @@
             <li v-if="user" class="right"><a href="#">Profile</a></li>
         @endauth
         @guest
-            <li class="right"><a href="{{ route('registerPage') }}"><span class="glyphicon glyphicon-user green"></span>Sign Up</a></li>
-            <li class="right"><a href="{{ route('loginPage') }}"><span class="glyphicon glyphicon-log-in green"></span>Login</a></li>
+            <li class="right"><a href="{{ route('registerPage') }}"><span class="bi-person-fill green me-1 text-success"></span>Sign Up</a></li>
+            <li class="right"><a href="{{ route('loginPage') }}"><span class="bi-box-arrow-in-right me-1 text-success"></span>Login</a></li>
         @endguest
     </ul>
 </nav>
