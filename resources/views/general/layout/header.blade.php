@@ -17,7 +17,7 @@
 <nav id="navbar">
     <h1 id="header">Assassin's creed forum</h1>
     <ul class="topnav">
-        <li><a href="{{ route('home') }}">View Categories</a></li>
+        <li><a href="{{ route('categories') }}">View Categories</a></li>
         @auth
             <li v-if="user" class="right"><a href="{{ route('logout') }}"><span class="glyphicon glyphicon-log-out red"></span> Sign out</a></li>
             <li v-if="user" class="right"><a href="#"><span class="glyphicon glyphicon-envelope yellow"></span>Messages</a></li>

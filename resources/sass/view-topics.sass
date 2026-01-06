@@ -1,0 +1,30 @@
+#livewire-topics
+    a, a:hover, a:focus, a:active
+        text-decoration: none
+        color: inherit
+    .container
+        display: grid
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr))
+        grid-column-gap: 20px
+        grid-row-gap: 15px
+        height: fit-content
+        .grid
+            padding: 20px
+            margin-bottom: 10px
+            background-color: lightgray
+            border-radius: 25px
+            box-shadow: rgba(17, 17, 26, 0.1) 0 4px 16px, rgba(17, 17, 26, 0.1) 0 8px 24px, rgba(17, 17, 26, 0.1) 0 16px 24px
+            animation: posts-load running 500ms
+            transition: transform 0.8s
+            &:hover
+                transform: scale(1.2)
+        @keyframes posts-load
+            0%
+                transform: translateX(-100%)
+            100%
+                transform: translateX(0)
+    @media screen and (max-width: 600px)
+    .container
+        .grid
+            &:hover
+                transform: none
