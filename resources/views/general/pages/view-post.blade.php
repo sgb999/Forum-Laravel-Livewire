@@ -1,7 +1,7 @@
 @include('general.layout.header')
 <div class="container">
-    <a class="btn btn-dark" href="{{ route('viewTopics', $post->category_id) }}">Back</a>
-    <h2>Post</h2>
+    <a class="btn btn-dark mt-5" href="{{ route('viewTopics', $post->category_id) }}">Back</a>
+    <h2 class="mt-2">Post</h2>
     <hr>
         <div class="container post-page">
             <h3>{{$post->title}}</h3>

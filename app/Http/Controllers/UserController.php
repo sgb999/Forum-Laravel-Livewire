@@ -3,25 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function loginPage()
-    {
-        $page_title = 'Assassins Creed Forum - Login';
-
-        return view('general.pages.login', compact(['page_title']));
-    }
-
     public function userPage(User $user)
     {
-        $page_title = 'Assassins Creed Forum - '.$user->username.'Profile';
+        $page_title = 'Assassins Creed Forum - '. $user->username.'Profile';
 
         return view('general.pages.profile', compact(['page_title', 'user']));
     }
 
-    public static function updateOrCreateUser(array $userRequest, $id = null)
+    public static function updateOrCreateUser(array $userRequest, $id = null) : User
     {
         return User::updateOrCreate(['id' => $id], $userRequest);
     }
@@ -34,14 +28,14 @@ class UserController extends Controller
         return view('general.pages.profile-update', compact(['page_title', 'user']));
     }
 
-    public function registerPage()
-    {
-        $page_title = 'Assassins Creed Forum - Create an Account';
-
-        return view('general.pages.register', compact(['page_title']));
-    }
-
-    public function logOutMethod(Request $request)
+    /**
+     * Logs out the authenticated user, invalidates the session, regenerates the CSRF token,
+     * and redirects the user back to the previous page.
+     *
+     * @param Request $request The HTTP request instance.
+     * @return RedirectResponse Redirect response to the previous page.
+     */
+    public function logOutMethod(Request $request) : RedirectResponse
     {
         auth()->logout();
         $request->session()->invalidate();
