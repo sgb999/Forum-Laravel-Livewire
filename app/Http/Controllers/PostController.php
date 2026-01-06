@@ -7,28 +7,6 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    public function viewTopics($id)
-    {
-        $page_title = 'Assassin\'s creed Forum - Topics';
-        $category_id = $id;
-
-        return view('general.pages.view-topics', compact(['page_title', 'id']));
-    }
-
-    public function viewPost(Post $post)
-    {
-        $page_title = 'Assassin\'s creed Forum - Post';
-
-        return view('general.pages.view-post', compact(['page_title', 'post']));
-    }
-
-    public function postPage()
-    {
-        $page_title = 'Assassins Creed - Make a Post';
-
-        return view('general.pages.post', compact(['page_title']));
-    }
-
     public function updatePostPage(Post $post)
     {
         abort_if($post->user_id !== auth()->id(), 403);

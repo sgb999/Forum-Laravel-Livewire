@@ -1,4 +1,4 @@
-<div>
+<div class="w-75">
     <h3>Comments</h3>
        @foreach($comments as $comment)
         <hr>
