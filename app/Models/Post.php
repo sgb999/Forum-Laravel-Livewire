@@ -2,20 +2,16 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Attributes\{Table, Fillable};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
+#[Table('posts')]
+#[Fillable(['title', 'content', 'user_id', 'category_id'])]
 class Post extends Model
 {
     use HasFactory;
-
-    protected $fillable = [
-        'title',
-        'content',
-        'user_id',
-        'category_id',
-    ];
 
     public function user(): BelongsTo
     {
