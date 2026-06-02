@@ -11,8 +11,7 @@
         <title>{{ $page_title }}</title>
     @endif
     @livewireStyles
-    <link rel="stylesheet" href="{{ mix('/css/app.css') }}">
-    <link rel="stylesheet" href="{{ mix('/css/header.css') }}">
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
 <nav id="navbar">
     <h1 id="header">Assassin's creed forum</h1>

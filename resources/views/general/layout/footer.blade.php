@@ -4,7 +4,6 @@
         <p>© 2026 Copyright:</p>
     </div>
 </div>
-<script src="{{ mix('/js/app.js') }}"></script>
 @livewireScripts
 </body>
 </html>
