@@ -7,19 +7,18 @@
     "require": {
         "php": "^8.5",
         "guzzlehttp/guzzle": "^7.2",
-        "itsgoingd/clockwork": "^5.1",
         "laravel/framework": "^12.0",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^4.2",
         "livewire/livewire": "^3.0",
-        "spatie/laravel-html": "^3.5",
         "ext-pdo": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",
         "barryvdh/laravel-ide-helper": "^3.0",
         "fakerphp/faker": "^1.9.1",
+        "icanhazstring/composer-unused": "^0.9.6",
         "laravel/boost": "^1.8",
         "laravel/pint": "^1.14",
         "laravel/sail": "^1.28",
