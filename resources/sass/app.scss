@@ -1,19 +1,16 @@
-// Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
-@import 'variables';
+@use '_variables';
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
-@import "bootstrap-icons";
+@use 'bootstrap/scss/bootstrap';
+@use "bootstrap-icons/font/bootstrap-icons.css";
 
 // Layout
-@import "header";
-
+@use "header";
+@use "footer";
 
 // Pages
-@import "categories";
-@import "view-topics";
-@import "view-post";
-@import "profile";
+@use "categories";
+@use "view-topics";
+@use "view-post";
+@use "profile";
