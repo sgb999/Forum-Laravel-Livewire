@@ -4,9 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-
-window.Vue = require('vue').default;
+import('./bootstrap');
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,6 +23,3 @@ window.Vue = require('vue').default;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
